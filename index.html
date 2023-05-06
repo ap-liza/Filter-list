@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <title>Filterable list</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">MY CONTACTS</h1>
+        <input type="text" placeholder="Type to search" id="filterInput">
+        <ul class="collection with-header" id="names">
+            <li class="collection-header">
+                <h5>A</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adwoa</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Abena</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Akua</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Aba</a>
+            </li>
+
+
+
+            <li class="collection-header">
+                <h5>B</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bernice</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Benjamin</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Brad</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bond3</a>
+            </li>
+
+            <li class="collection-header">
+                <h5>C</h5>
+            </li>
+            <li class="collection-item">
+                <a href="#">Constance</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Comfort</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chelsea</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Collins</a>
+            </li>
+        </ul>
+    </div>
+    
+    <script>
+        
+        //declare
+        let filterInput = document.getElementById('filterInput');
+        //add 
+        filterInput.addEventListener('keyup', filterNames)
+
+        function filterNames(){
+            
+            //value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase() //****
+        
+             // get names from list
+        let ul = document.getElementById('names');
+
+        // get list from ul
+        let li = ul.querySelectorAll('li.collection-item');
+
+        for(let i = 0; i <li.length ; i++){
+        let a = li[i].getElementsByTagName('a')[0];
+
+    // matching
+    if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+        li[i].style.display = ' ';
+    } else{
+        li[i].style.display = "none";
+    }
+}
+        }
+
+       
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
